@@ -1,0 +1,29 @@
+server:
+  port: 8888
+management:
+  security:
+    enabled: false
+spring: 
+  application:
+    name: configserver-dummy
+  profiles:
+    active: development
+  cloud: 
+    config: 
+      fail-fast: true
+      server: 
+        git: 
+          clone-on-start: true
+          uri: https://github.com/cesargomezvela/config-repo-default.git
+          username: cesargomezvela
+          password: varose%55
+          search-paths:
+          - /*
+          repos: 
+            cibp-testbus-service:
+              clone-on-start: true
+              uri: https://github.com/cesargomezvela/config-cibp-testbus-service.git
+              username: cesargomezvela
+              password: varose%55
+              search-paths:
+              - /*
